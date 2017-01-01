@@ -1,114 +1,207 @@
-﻿@model XconApp.Models.OrderModel
+﻿@using XconApp.Infrastructures
+@model XconApp.Models.OrderModel
 
 @{
     ViewBag.Title = "OrderDetail";
+
+    var tabs = Model.OrderDetails.Select(e =>
+        new
+        {
+            Id = e.U_GC_GroupType.ToDashCase(),
+            Header = e.U_GC_GroupType
+        }).Distinct().ToList();
 }
 
-<h2>OrderDetail</h2>
+@section scripts {
+    <script>
+        XCON.showLoading();
+        $(() => {
+            $('#tabItemDetail a:first').tab('show');
+            setTimeout(() => XCON.hideLoading(), 2000);
+        });
+    </script>
+}
 
-<div>
-    <h4>OrderModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DocEntry)
-        </dt>
+<div class="row">
+    <div class="divider"></div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Order</div>
+        <div class="panel-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.DocEntry)
-        </dd>
+            <div class="col-sm-6">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DocEntry)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DocNum)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DocEntry)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DocNum)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DocNum)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DocDate)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DocNum)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DocDate)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DocDate)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DocDate)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RangeDateType)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.EndDate)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.RangeDateType)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RangeDateType)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CardCode)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RangeDateType)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CardCode)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CardCode)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CardName)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CardCode)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CardName)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CardName)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectName)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CardName)
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-sm-6">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ProjectName)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProjectName)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.ProjectName)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectCode)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ProjectCode)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProjectCode)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.ProjectCode)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DocCur)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DocCur)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DocCur)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.DocCur)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DocRate)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DocRate)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DocRate)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.DocRate)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Address)
+                    </dd>
+                </dl>
+            </div>
 
-    </dl>
+
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="row">
+    <div class="divider"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Details</div>
+        <div class="panel-body">
+
+            <div id="tabItemDetail">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    @foreach (var tab in tabs)
+                    {
+                    <li role="presentation">
+                        <a href="#@tab.Id" aria-controls="@tab.Id" role="tab" data-toggle="tab">@tab.Header</a>
+                    </li>
+                    }
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    @foreach (var tab in tabs)
+                    {
+                    <div role="tabpanel" class="tab-pane" id="@tab.Id">
+                        <table class="table table-striped table-hover table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>ItemCode</th>
+                                    <th>Description</th>
+                                    <th>Remark</th>
+                                    <th>Qty.</th>
+                                    <th>Price/Unit</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in Model.OrderDetails.Where(e => e.U_GC_GroupType == tab.Header))
+                                    {
+                                <tr>
+                                    <td>@Html.Label(row.ItemCode)</td>
+                                    <td>@Html.Label(row.Dscription)</td>
+                                    <td>
+                                        @if (row.CanEditChild == "Y")
+                                                {
+                                        <a href="#" class="btn btn-link">Select</a>
+                                                }
+                                    </td>
+                                    <td><input type="number" min="0" id="txtQty" value="0" /></td>
+                                    <td>@Html.Label("lblPrice", $"{row.Price:N2}")</td>
+                                    <td>@Html.Label("lblTotal", "0.00", new { id = "lblTotal" })</td>
+                                    <td>
+                                        @Html.Hidden(row.U_Size)
+                                        @Html.Hidden(row.U_Color)
+                                    </td>
+                                </tr>
+                                    }
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                    }
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<br />
+

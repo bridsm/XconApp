@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 using XconApp.Data;
@@ -12,8 +9,8 @@ namespace XconApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly UserRepository _user;
         private readonly OrderRepository _order;
+        private readonly UserRepository _user;
 
         public HomeController()
         {
@@ -25,7 +22,7 @@ namespace XconApp.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-            ViewBag.Greeting = $"Hello { UserContext.GetUser().ProjectCode}";
+            ViewBag.Greeting = $"Hello {UserContext.GetUser().ProjectCode}";
             return View();
         }
 
@@ -37,11 +34,8 @@ namespace XconApp.Controllers
         [HttpPost]
         public ActionResult Login(GC_USER model)
         {
-
             if (_user.IsValidUser(model.UserID, model.Password))
-            {
                 FormsAuthentication.RedirectFromLoginPage(model.UserID, true);
-            }
 
             return View();
         }
@@ -63,9 +57,7 @@ namespace XconApp.Controllers
         [Authorize]
         public ActionResult OrderDetail()
         {
-           
             return View();
         }
-
     }
 }
