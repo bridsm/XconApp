@@ -1,0 +1,114 @@
+﻿@model XconApp.Models.OrderModel
+
+@{
+    ViewBag.Title = "OrderDetail";
+}
+
+<h2>OrderDetail</h2>
+
+<div>
+    <h4>OrderModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DocEntry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocEntry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RangeDateType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RangeDateType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CardCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CardCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CardName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CardName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocCur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocCur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

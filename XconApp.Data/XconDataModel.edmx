@@ -1,0 +1,1176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="XCON_GCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'XCON_GC.dbo.GC_OCRD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GC_OCRD">
+          <Key>
+            <PropertyRef Name="CardCode" />
+          </Key>
+          <Property Name="CardCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="20" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="20" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+          <Property Name="CardFName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Building" Type="ntext" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'XCON_GC.dbo.GC_OQUT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GC_OQUT">
+          <Key>
+            <PropertyRef Name="DocEntry" />
+            <PropertyRef Name="DocNum" />
+          </Key>
+          <Property Name="DocEntry" Type="int" Nullable="false" />
+          <Property Name="DocNum" Type="int" Nullable="false" />
+          <Property Name="DocStatus" Type="char" MaxLength="1" />
+          <Property Name="DocDate" Type="datetime" />
+          <Property Name="DocDueDate" Type="datetime" />
+          <Property Name="CardCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="254" />
+          <Property Name="NumAtCard" Type="nvarchar" MaxLength="100" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="254" />
+          <Property Name="Project" Type="nvarchar" MaxLength="20" />
+          <Property Name="DocCur" Type="nvarchar" MaxLength="3" />
+          <Property Name="DocRate" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="U_MainProject" Type="nvarchar" MaxLength="20" />
+          <Property Name="U_ExpireDay" Type="int" />
+          <Property Name="U_EarlyFromDate" Type="datetime" />
+          <Property Name="U_EarlyToDate" Type="datetime" />
+          <Property Name="U_StandardFromDate" Type="datetime" />
+          <Property Name="U_StandardToDate" Type="datetime" />
+          <Property Name="U_OnSiteFromDate" Type="datetime" />
+          <Property Name="U_OnSiteToDate" Type="datetime" />
+          <Property Name="U_EarlyDisc" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="U_StandardDisc" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="U_OnSiteDisc" Type="numeric" Precision="19" Scale="6" />
+        </EntityType>
+        <EntityType Name="GC_ORDR">
+          <Key>
+            <PropertyRef Name="DocNum" />
+          </Key>
+          <Property Name="DocNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocDate" Type="datetime" />
+          <Property Name="DocDueDate" Type="datetime" />
+          <Property Name="CardCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="254" />
+          <Property Name="NumAtCard" Type="nvarchar" MaxLength="100" />
+          <Property Name="VatSum" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="DocTotal" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="Doc_Approve" Type="char" MaxLength="1" />
+          <Property Name="Doc_Date" Type="datetime" />
+          <Property Name="Doc_BaseRef" Type="int" />
+          <Property Name="Doc_Status" Type="nvarchar" MaxLength="1" />
+          <Property Name="Doc_Remark" Type="nvarchar" MaxLength="250" />
+          <Property Name="Doc_AppUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="Doc_AppDate" Type="datetime" />
+          <Property Name="DocCur" Type="nvarchar" MaxLength="3" />
+          <Property Name="DocRate" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="ProjectCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="254" />
+          <Property Name="BoothNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GC_OREC">
+          <Key>
+            <PropertyRef Name="DocNum" />
+          </Key>
+          <Property Name="DocNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LineNum" Type="int" />
+          <Property Name="DocStatus" Type="char" MaxLength="1" />
+          <Property Name="DocDate" Type="datetime" />
+          <Property Name="CardCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="100" />
+          <Property Name="TypePay" Type="nvarchar" MaxLength="100" />
+          <Property Name="Bank" Type="nvarchar" MaxLength="254" />
+          <Property Name="Amount" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="Project" Type="nvarchar" MaxLength="20" />
+          <Property Name="U_MainProject" Type="nvarchar" MaxLength="20" />
+          <Property Name="AttachFile" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'XCON_GC.dbo.GC_QUT1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GC_QUT1">
+          <Key>
+            <PropertyRef Name="DocEntry" />
+            <PropertyRef Name="LineNum" />
+          </Key>
+          <Property Name="DocEntry" Type="int" Nullable="false" />
+          <Property Name="LineNum" Type="int" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dscription" Type="nvarchar" MaxLength="100" />
+          <Property Name="Quantity" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="Price" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+          <Property Name="Rate" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="WhsCode" Type="nvarchar" MaxLength="8" />
+          <Property Name="PriceBefDi" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="DocDate" Type="datetime" />
+          <Property Name="OcrCode" Type="nvarchar" MaxLength="8" />
+          <Property Name="Project" Type="nvarchar" MaxLength="20" />
+          <Property Name="VatPrcnt" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="VatGroup" Type="nvarchar" MaxLength="8" />
+          <Property Name="PriceAfVAT" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="VatSum" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="TaxCode" Type="nvarchar" MaxLength="8" />
+          <Property Name="TaxType" Type="char" MaxLength="1" />
+          <Property Name="FreeTxt" Type="nvarchar" MaxLength="100" />
+          <Property Name="unitMsr" Type="nvarchar" MaxLength="100" />
+          <Property Name="UomCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="FromWhsCod" Type="nvarchar" MaxLength="8" />
+          <Property Name="U_LineDesc" Type="nvarchar" MaxLength="250" />
+          <Property Name="U_EarlyPrice" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="U_StandardPrice" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="U_OnSitePrice" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="U_Size" Type="nvarchar" MaxLength="1" />
+          <Property Name="U_Color" Type="nvarchar" MaxLength="1" />
+          <Property Name="U_GC_GroupType" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'XCON_GC.dbo.GC_RDR1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GC_RDR1">
+          <Key>
+            <PropertyRef Name="DocNum" />
+            <PropertyRef Name="LineNum" />
+          </Key>
+          <Property Name="DocNum" Type="int" Nullable="false" />
+          <Property Name="LineNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dscription" Type="nvarchar" MaxLength="100" />
+          <Property Name="Quantity" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="Price" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+          <Property Name="Rate" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="WhsCode" Type="nvarchar" MaxLength="8" />
+          <Property Name="PriceBefDi" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="DocDate" Type="datetime" />
+          <Property Name="OcrCode" Type="nvarchar" MaxLength="8" />
+          <Property Name="Project" Type="nvarchar" MaxLength="20" />
+          <Property Name="VatPrcnt" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="VatGroup" Type="nvarchar" MaxLength="8" />
+          <Property Name="PriceAfVAT" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="VatSum" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="TaxCode" Type="nvarchar" MaxLength="8" />
+          <Property Name="TaxType" Type="char" MaxLength="1" />
+          <Property Name="FreeTxt" Type="nvarchar" MaxLength="100" />
+          <Property Name="unitMsr" Type="nvarchar" MaxLength="100" />
+          <Property Name="UomCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="FromWhsCod" Type="nvarchar" MaxLength="8" />
+          <Property Name="Doc_LineDesc" Type="nvarchar" MaxLength="250" />
+          <Property Name="Doc_SizeColor" Type="nvarchar" MaxLength="1" />
+          <Property Name="Doc_Status" Type="varchar" MaxLength="1" />
+          <Property Name="Doc_Remark" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'XCON_GC.dbo.GC_RDR2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GC_RDR2">
+          <Key>
+            <PropertyRef Name="DocNum" />
+            <PropertyRef Name="LineNum" />
+            <PropertyRef Name="SubLine" />
+          </Key>
+          <Property Name="DocNum" Type="int" Nullable="false" />
+          <Property Name="LineNum" Type="int" Nullable="false" />
+          <Property Name="SubLine" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Doc_Size" Type="nvarchar" MaxLength="1" />
+          <Property Name="Doc_Color" Type="nvarchar" MaxLength="1" />
+          <Property Name="Quantity" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="Doc_Label" Type="nvarchar" MaxLength="50" />
+          <Property Name="Doc_Remark1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Doc_Remark2" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="GC_USER">
+          <Key>
+            <PropertyRef Name="CardCode" />
+            <PropertyRef Name="ProjectCode" />
+          </Key>
+          <Property Name="CardCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="15" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" />
+          <Property Name="ProjectCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="UserLevel" Type="int" />
+        </EntityType>
+        <Function Name="Get_XCONQuotation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DueDateFrom" Type="datetime" Mode="In" />
+          <Parameter Name="DueDateTo" Type="datetime" Mode="In" />
+          <Parameter Name="DocnumFrom" Type="int" Mode="In" />
+          <Parameter Name="DocnumTo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="POST_ORDR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocDate" Type="datetime" Mode="In" />
+          <Parameter Name="DocDueDate" Type="datetime" Mode="In" />
+          <Parameter Name="CardCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="CardName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="NumAtCard" Type="nvarchar" Mode="In" />
+          <Parameter Name="VatSum" Type="decimal" Mode="In" />
+          <Parameter Name="DocTotal" Type="decimal" Mode="In" />
+          <Parameter Name="Doc_Approve" Type="char" Mode="In" />
+          <Parameter Name="Doc_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Doc_BaseRef" Type="int" Mode="In" />
+          <Parameter Name="Doc_Status" Type="nvarchar" Mode="In" />
+          <Parameter Name="Doc_Remark" Type="nvarchar" Mode="In" />
+          <Parameter Name="Doc_AppUser" Type="nvarchar" Mode="In" />
+          <Parameter Name="Doc_AppDate" Type="datetime" Mode="In" />
+          <Parameter Name="DocCur" Type="nvarchar" Mode="In" />
+          <Parameter Name="DocRate" Type="decimal" Mode="In" />
+          <Parameter Name="ProjectCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Comment" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="POST_PAYMENT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LineNum" Type="int" Mode="In" />
+          <Parameter Name="DocStatus" Type="char" Mode="In" />
+          <Parameter Name="DocDate" Type="datetime" Mode="In" />
+          <Parameter Name="CardCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="CardName" Type="nvarchar" Mode="In" />
+          <Parameter Name="TypePay" Type="nvarchar" Mode="In" />
+          <Parameter Name="Bank" Type="nvarchar" Mode="In" />
+          <Parameter Name="Amount" Type="numeric" Mode="In" />
+          <Parameter Name="Project" Type="nvarchar" Mode="In" />
+          <Parameter Name="U_MainProject" Type="nvarchar" Mode="In" />
+          <Parameter Name="AttachFile" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="POST_RDR1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocNum" Type="int" Mode="In" />
+          <Parameter Name="ItemCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Dscription" Type="nvarchar" Mode="In" />
+          <Parameter Name="Quantity" Type="numeric" Mode="In" />
+          <Parameter Name="Price" Type="numeric" Mode="In" />
+          <Parameter Name="Currency" Type="nvarchar" Mode="In" />
+          <Parameter Name="Rate" Type="numeric" Mode="In" />
+          <Parameter Name="WhsCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="PriceBefDi" Type="numeric" Mode="In" />
+          <Parameter Name="DocDate" Type="datetime" Mode="In" />
+          <Parameter Name="OcrCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Project" Type="nvarchar" Mode="In" />
+          <Parameter Name="VatPrcnt" Type="numeric" Mode="In" />
+          <Parameter Name="VatGroup" Type="nvarchar" Mode="In" />
+          <Parameter Name="PriceAfVAT" Type="decimal" Mode="In" />
+          <Parameter Name="VatSum" Type="numeric" Mode="In" />
+          <Parameter Name="TaxCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="TaxType" Type="char" Mode="In" />
+          <Parameter Name="FreeTxt" Type="nvarchar" Mode="In" />
+          <Parameter Name="unitMsr" Type="nvarchar" Mode="In" />
+          <Parameter Name="UomCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="FromWhsCod" Type="nvarchar" Mode="In" />
+          <Parameter Name="Doc_LineDesc" Type="nvarchar" Mode="In" />
+          <Parameter Name="Doc_SizeColor" Type="nvarchar" Mode="In" />
+          <Parameter Name="Doc_Status" Type="varchar" Mode="In" />
+          <Parameter Name="Doc_Remark" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="POST_RDR2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocNum" Type="int" Mode="In" />
+          <Parameter Name="LineNum" Type="int" Mode="In" />
+          <Parameter Name="Doc_Size" Type="nvarchar" Mode="In" />
+          <Parameter Name="Doc_Color" Type="nvarchar" Mode="In" />
+          <Parameter Name="Quantity" Type="numeric" Mode="In" />
+          <Parameter Name="Doc_Label" Type="nvarchar" Mode="In" />
+          <Parameter Name="Doc_Remark1" Type="nvarchar" Mode="In" />
+          <Parameter Name="Doc_Remark2" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="PUT_OQUT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="U_EarlyFromDate" Type="datetime" Mode="In" />
+          <Parameter Name="U_EarlyToDate" Type="datetime" Mode="In" />
+          <Parameter Name="U_StandardFromDate" Type="datetime" Mode="In" />
+          <Parameter Name="U_StandardToDate" Type="datetime" Mode="In" />
+          <Parameter Name="U_OnSiteFromDate" Type="datetime" Mode="In" />
+          <Parameter Name="U_OnSiteToDate" Type="datetime" Mode="In" />
+          <Parameter Name="U_EarlyDisc" Type="numeric" Mode="In" />
+          <Parameter Name="U_StandardDisc" Type="numeric" Mode="In" />
+          <Parameter Name="U_OnSiteDisc" Type="numeric" Mode="In" />
+          <Parameter Name="DocEntry" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PUT_PAYMENT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LineNum" Type="int" Mode="In" />
+          <Parameter Name="DocStatus" Type="char" Mode="In" />
+          <Parameter Name="DocDate" Type="datetime" Mode="In" />
+          <Parameter Name="CardCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="CardName" Type="nvarchar" Mode="In" />
+          <Parameter Name="TypePay" Type="nvarchar" Mode="In" />
+          <Parameter Name="Bank" Type="nvarchar" Mode="In" />
+          <Parameter Name="Amount" Type="numeric" Mode="In" />
+          <Parameter Name="Project" Type="nvarchar" Mode="In" />
+          <Parameter Name="U_MainProject" Type="nvarchar" Mode="In" />
+          <Parameter Name="AttachFile" Type="nvarchar" Mode="In" />
+          <Parameter Name="DocNum" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PUT_QUT1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="U_EarlyPrice" Type="numeric" Mode="In" />
+          <Parameter Name="U_StandardPrice" Type="numeric" Mode="In" />
+          <Parameter Name="U_OnSitePrice" Type="numeric" Mode="In" />
+          <Parameter Name="U_Size" Type="nvarchar" Mode="In" />
+          <Parameter Name="U_Color" Type="nvarchar" Mode="In" />
+          <Parameter Name="DocEntry" Type="int" Mode="In" />
+          <Parameter Name="LineNum" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UPSERT_OCRD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodeFrom" Type="nvarchar" Mode="In" />
+          <Parameter Name="CodeTo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UPSERT_OQUT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DueDateFrom" Type="datetime" Mode="In" />
+          <Parameter Name="DueDateTo" Type="datetime" Mode="In" />
+          <Parameter Name="DocnumFrom" Type="int" Mode="In" />
+          <Parameter Name="DocnumTo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UPSERT_QUT1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DueDateFrom" Type="datetime" Mode="In" />
+          <Parameter Name="DueDateTo" Type="datetime" Mode="In" />
+          <Parameter Name="DocnumFrom" Type="int" Mode="In" />
+          <Parameter Name="DocnumTo" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="XCON_GCModelStoreContainer">
+          <EntitySet Name="GC_ORDR" EntityType="Self.GC_ORDR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GC_OREC" EntityType="Self.GC_OREC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GC_USER" EntityType="Self.GC_USER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GC_OCRD" EntityType="Self.GC_OCRD" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GC_OCRD].[CardCode] AS [CardCode], 
+    [GC_OCRD].[CardName] AS [CardName], 
+    [GC_OCRD].[Address] AS [Address], 
+    [GC_OCRD].[ZipCode] AS [ZipCode], 
+    [GC_OCRD].[Phone1] AS [Phone1], 
+    [GC_OCRD].[Phone2] AS [Phone2], 
+    [GC_OCRD].[Currency] AS [Currency], 
+    [GC_OCRD].[CardFName] AS [CardFName], 
+    [GC_OCRD].[Building] AS [Building]
+    FROM [dbo].[GC_OCRD] AS [GC_OCRD]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GC_OQUT" EntityType="Self.GC_OQUT" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GC_OQUT].[DocEntry] AS [DocEntry], 
+    [GC_OQUT].[DocNum] AS [DocNum], 
+    [GC_OQUT].[DocStatus] AS [DocStatus], 
+    [GC_OQUT].[DocDate] AS [DocDate], 
+    [GC_OQUT].[DocDueDate] AS [DocDueDate], 
+    [GC_OQUT].[CardCode] AS [CardCode], 
+    [GC_OQUT].[CardName] AS [CardName], 
+    [GC_OQUT].[Address] AS [Address], 
+    [GC_OQUT].[NumAtCard] AS [NumAtCard], 
+    [GC_OQUT].[Comments] AS [Comments], 
+    [GC_OQUT].[Project] AS [Project], 
+    [GC_OQUT].[DocCur] AS [DocCur], 
+    [GC_OQUT].[DocRate] AS [DocRate], 
+    [GC_OQUT].[U_MainProject] AS [U_MainProject], 
+    [GC_OQUT].[U_ExpireDay] AS [U_ExpireDay], 
+    [GC_OQUT].[U_EarlyFromDate] AS [U_EarlyFromDate], 
+    [GC_OQUT].[U_EarlyToDate] AS [U_EarlyToDate], 
+    [GC_OQUT].[U_StandardFromDate] AS [U_StandardFromDate], 
+    [GC_OQUT].[U_StandardToDate] AS [U_StandardToDate], 
+    [GC_OQUT].[U_OnSiteFromDate] AS [U_OnSiteFromDate], 
+    [GC_OQUT].[U_OnSiteToDate] AS [U_OnSiteToDate], 
+    [GC_OQUT].[U_EarlyDisc] AS [U_EarlyDisc], 
+    [GC_OQUT].[U_StandardDisc] AS [U_StandardDisc], 
+    [GC_OQUT].[U_OnSiteDisc] AS [U_OnSiteDisc]
+    FROM [dbo].[GC_OQUT] AS [GC_OQUT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GC_QUT1" EntityType="Self.GC_QUT1" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GC_QUT1].[DocEntry] AS [DocEntry], 
+    [GC_QUT1].[LineNum] AS [LineNum], 
+    [GC_QUT1].[ItemCode] AS [ItemCode], 
+    [GC_QUT1].[Dscription] AS [Dscription], 
+    [GC_QUT1].[Quantity] AS [Quantity], 
+    [GC_QUT1].[Price] AS [Price], 
+    [GC_QUT1].[Currency] AS [Currency], 
+    [GC_QUT1].[Rate] AS [Rate], 
+    [GC_QUT1].[WhsCode] AS [WhsCode], 
+    [GC_QUT1].[PriceBefDi] AS [PriceBefDi], 
+    [GC_QUT1].[DocDate] AS [DocDate], 
+    [GC_QUT1].[OcrCode] AS [OcrCode], 
+    [GC_QUT1].[Project] AS [Project], 
+    [GC_QUT1].[VatPrcnt] AS [VatPrcnt], 
+    [GC_QUT1].[VatGroup] AS [VatGroup], 
+    [GC_QUT1].[PriceAfVAT] AS [PriceAfVAT], 
+    [GC_QUT1].[VatSum] AS [VatSum], 
+    [GC_QUT1].[TaxCode] AS [TaxCode], 
+    [GC_QUT1].[TaxType] AS [TaxType], 
+    [GC_QUT1].[FreeTxt] AS [FreeTxt], 
+    [GC_QUT1].[unitMsr] AS [unitMsr], 
+    [GC_QUT1].[UomCode] AS [UomCode], 
+    [GC_QUT1].[FromWhsCod] AS [FromWhsCod], 
+    [GC_QUT1].[U_LineDesc] AS [U_LineDesc], 
+    [GC_QUT1].[U_EarlyPrice] AS [U_EarlyPrice], 
+    [GC_QUT1].[U_StandardPrice] AS [U_StandardPrice], 
+    [GC_QUT1].[U_OnSitePrice] AS [U_OnSitePrice], 
+    [GC_QUT1].[U_Size] AS [U_Size], 
+    [GC_QUT1].[U_Color] AS [U_Color], 
+    [GC_QUT1].[U_GC_GroupType] AS [U_GC_GroupType]
+    FROM [dbo].[GC_QUT1] AS [GC_QUT1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GC_RDR1" EntityType="Self.GC_RDR1" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GC_RDR1].[DocNum] AS [DocNum], 
+    [GC_RDR1].[LineNum] AS [LineNum], 
+    [GC_RDR1].[ItemCode] AS [ItemCode], 
+    [GC_RDR1].[Dscription] AS [Dscription], 
+    [GC_RDR1].[Quantity] AS [Quantity], 
+    [GC_RDR1].[Price] AS [Price], 
+    [GC_RDR1].[Currency] AS [Currency], 
+    [GC_RDR1].[Rate] AS [Rate], 
+    [GC_RDR1].[WhsCode] AS [WhsCode], 
+    [GC_RDR1].[PriceBefDi] AS [PriceBefDi], 
+    [GC_RDR1].[DocDate] AS [DocDate], 
+    [GC_RDR1].[OcrCode] AS [OcrCode], 
+    [GC_RDR1].[Project] AS [Project], 
+    [GC_RDR1].[VatPrcnt] AS [VatPrcnt], 
+    [GC_RDR1].[VatGroup] AS [VatGroup], 
+    [GC_RDR1].[PriceAfVAT] AS [PriceAfVAT], 
+    [GC_RDR1].[VatSum] AS [VatSum], 
+    [GC_RDR1].[TaxCode] AS [TaxCode], 
+    [GC_RDR1].[TaxType] AS [TaxType], 
+    [GC_RDR1].[FreeTxt] AS [FreeTxt], 
+    [GC_RDR1].[unitMsr] AS [unitMsr], 
+    [GC_RDR1].[UomCode] AS [UomCode], 
+    [GC_RDR1].[FromWhsCod] AS [FromWhsCod], 
+    [GC_RDR1].[Doc_LineDesc] AS [Doc_LineDesc], 
+    [GC_RDR1].[Doc_SizeColor] AS [Doc_SizeColor], 
+    [GC_RDR1].[Doc_Status] AS [Doc_Status], 
+    [GC_RDR1].[Doc_Remark] AS [Doc_Remark]
+    FROM [dbo].[GC_RDR1] AS [GC_RDR1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GC_RDR2" EntityType="Self.GC_RDR2" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GC_RDR2].[DocNum] AS [DocNum], 
+    [GC_RDR2].[LineNum] AS [LineNum], 
+    [GC_RDR2].[SubLine] AS [SubLine], 
+    [GC_RDR2].[Doc_Size] AS [Doc_Size], 
+    [GC_RDR2].[Doc_Color] AS [Doc_Color], 
+    [GC_RDR2].[Quantity] AS [Quantity], 
+    [GC_RDR2].[Doc_Label] AS [Doc_Label], 
+    [GC_RDR2].[Doc_Remark1] AS [Doc_Remark1], 
+    [GC_RDR2].[Doc_Remark2] AS [Doc_Remark2]
+    FROM [dbo].[GC_RDR2] AS [GC_RDR2]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="XCON_GCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GC_ORDR">
+          <Key>
+            <PropertyRef Name="DocNum" />
+          </Key>
+          <Property Name="DocNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocDate" Type="DateTime" Precision="3" />
+          <Property Name="DocDueDate" Type="DateTime" Precision="3" />
+          <Property Name="CardCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CardName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="NumAtCard" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VatSum" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="DocTotal" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="Doc_Approve" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Doc_Date" Type="DateTime" Precision="3" />
+          <Property Name="Doc_BaseRef" Type="Int32" />
+          <Property Name="Doc_Status" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_AppUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_AppDate" Type="DateTime" Precision="3" />
+          <Property Name="DocCur" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="DocRate" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="ProjectCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="BoothNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GC_OREC">
+          <Key>
+            <PropertyRef Name="DocNum" />
+          </Key>
+          <Property Name="DocNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LineNum" Type="Int32" />
+          <Property Name="DocStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DocDate" Type="DateTime" Precision="3" />
+          <Property Name="CardCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CardName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TypePay" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Bank" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="Project" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="U_MainProject" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AttachFile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GC_USER">
+          <Key>
+            <PropertyRef Name="CardCode" />
+            <PropertyRef Name="ProjectCode" />
+          </Key>
+          <Property Name="CardCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CardName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserLevel" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GC_OCRD">
+          <Key>
+            <PropertyRef Name="CardCode" />
+          </Key>
+          <Property Name="CardCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CardName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Phone1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="CardFName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Building" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GC_OQUT">
+          <Key>
+            <PropertyRef Name="DocEntry" />
+            <PropertyRef Name="DocNum" />
+          </Key>
+          <Property Name="DocEntry" Type="Int32" Nullable="false" />
+          <Property Name="DocNum" Type="Int32" Nullable="false" />
+          <Property Name="DocStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DocDate" Type="DateTime" Precision="3" />
+          <Property Name="DocDueDate" Type="DateTime" Precision="3" />
+          <Property Name="CardCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CardName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="NumAtCard" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="Project" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DocCur" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="DocRate" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="U_MainProject" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="U_ExpireDay" Type="Int32" />
+          <Property Name="U_EarlyFromDate" Type="DateTime" Precision="3" />
+          <Property Name="U_EarlyToDate" Type="DateTime" Precision="3" />
+          <Property Name="U_StandardFromDate" Type="DateTime" Precision="3" />
+          <Property Name="U_StandardToDate" Type="DateTime" Precision="3" />
+          <Property Name="U_OnSiteFromDate" Type="DateTime" Precision="3" />
+          <Property Name="U_OnSiteToDate" Type="DateTime" Precision="3" />
+          <Property Name="U_EarlyDisc" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="U_StandardDisc" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="U_OnSiteDisc" Type="Decimal" Precision="19" Scale="6" />
+        </EntityType>
+        <EntityType Name="GC_QUT1">
+          <Key>
+            <PropertyRef Name="DocEntry" />
+            <PropertyRef Name="LineNum" />
+          </Key>
+          <Property Name="DocEntry" Type="Int32" Nullable="false" />
+          <Property Name="LineNum" Type="Int32" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dscription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="Currency" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Rate" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="WhsCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="PriceBefDi" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="DocDate" Type="DateTime" Precision="3" />
+          <Property Name="OcrCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Project" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VatPrcnt" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="VatGroup" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="PriceAfVAT" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="VatSum" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="TaxCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="TaxType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FreeTxt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="unitMsr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UomCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FromWhsCod" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="U_LineDesc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="U_EarlyPrice" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="U_StandardPrice" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="U_OnSitePrice" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="U_Size" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="U_Color" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="U_GC_GroupType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GC_RDR1">
+          <Key>
+            <PropertyRef Name="DocNum" />
+            <PropertyRef Name="LineNum" />
+          </Key>
+          <Property Name="DocNum" Type="Int32" Nullable="false" />
+          <Property Name="LineNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dscription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="Currency" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Rate" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="WhsCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="PriceBefDi" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="DocDate" Type="DateTime" Precision="3" />
+          <Property Name="OcrCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Project" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VatPrcnt" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="VatGroup" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="PriceAfVAT" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="VatSum" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="TaxCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="TaxType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FreeTxt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="unitMsr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UomCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FromWhsCod" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_LineDesc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_SizeColor" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Doc_Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GC_RDR2">
+          <Key>
+            <PropertyRef Name="DocNum" />
+            <PropertyRef Name="LineNum" />
+            <PropertyRef Name="SubLine" />
+          </Key>
+          <Property Name="DocNum" Type="Int32" Nullable="false" />
+          <Property Name="LineNum" Type="Int32" Nullable="false" />
+          <Property Name="SubLine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Doc_Size" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_Color" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="Doc_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_Remark1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_Remark2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="XCON_GCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GC_ORDR" EntityType="Self.GC_ORDR" />
+          <EntitySet Name="GC_OREC" EntityType="Self.GC_OREC" />
+          <EntitySet Name="GC_USER" EntityType="Self.GC_USER" />
+          <EntitySet Name="GC_OCRD" EntityType="Self.GC_OCRD" />
+          <EntitySet Name="GC_OQUT" EntityType="Self.GC_OQUT" />
+          <EntitySet Name="GC_QUT1" EntityType="Self.GC_QUT1" />
+          <EntitySet Name="GC_RDR1" EntityType="Self.GC_RDR1" />
+          <EntitySet Name="GC_RDR2" EntityType="Self.GC_RDR2" />
+          <FunctionImport Name="Get_XCONQuotation" ReturnType="Collection(XCON_GCModel.Get_XCONQuotation_Result)">
+            <Parameter Name="DueDateFrom" Mode="In" Type="DateTime" />
+            <Parameter Name="DueDateTo" Mode="In" Type="DateTime" />
+            <Parameter Name="DocnumFrom" Mode="In" Type="Int32" />
+            <Parameter Name="DocnumTo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="POST_ORDR">
+            <Parameter Name="DocDate" Mode="In" Type="DateTime" />
+            <Parameter Name="DocDueDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CardCode" Mode="In" Type="String" />
+            <Parameter Name="CardName" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="NumAtCard" Mode="In" Type="String" />
+            <Parameter Name="VatSum" Mode="In" Type="Decimal" />
+            <Parameter Name="DocTotal" Mode="In" Type="Decimal" />
+            <Parameter Name="Doc_Approve" Mode="In" Type="String" />
+            <Parameter Name="Doc_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Doc_BaseRef" Mode="In" Type="Int32" />
+            <Parameter Name="Doc_Status" Mode="In" Type="String" />
+            <Parameter Name="Doc_Remark" Mode="In" Type="String" />
+            <Parameter Name="Doc_AppUser" Mode="In" Type="String" />
+            <Parameter Name="Doc_AppDate" Mode="In" Type="DateTime" />
+            <Parameter Name="DocCur" Mode="In" Type="String" />
+            <Parameter Name="DocRate" Mode="In" Type="Decimal" />
+            <Parameter Name="ProjectCode" Mode="In" Type="String" />
+            <Parameter Name="Comment" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POST_PAYMENT">
+            <Parameter Name="LineNum" Mode="In" Type="Int32" />
+            <Parameter Name="DocStatus" Mode="In" Type="String" />
+            <Parameter Name="DocDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CardCode" Mode="In" Type="String" />
+            <Parameter Name="CardName" Mode="In" Type="String" />
+            <Parameter Name="TypePay" Mode="In" Type="String" />
+            <Parameter Name="Bank" Mode="In" Type="String" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="Project" Mode="In" Type="String" />
+            <Parameter Name="U_MainProject" Mode="In" Type="String" />
+            <Parameter Name="AttachFile" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POST_RDR1">
+            <Parameter Name="DocNum" Mode="In" Type="Int32" />
+            <Parameter Name="ItemCode" Mode="In" Type="String" />
+            <Parameter Name="Dscription" Mode="In" Type="String" />
+            <Parameter Name="Quantity" Mode="In" Type="Decimal" />
+            <Parameter Name="Price" Mode="In" Type="Decimal" />
+            <Parameter Name="Currency" Mode="In" Type="String" />
+            <Parameter Name="Rate" Mode="In" Type="Decimal" />
+            <Parameter Name="WhsCode" Mode="In" Type="String" />
+            <Parameter Name="PriceBefDi" Mode="In" Type="Decimal" />
+            <Parameter Name="DocDate" Mode="In" Type="DateTime" />
+            <Parameter Name="OcrCode" Mode="In" Type="String" />
+            <Parameter Name="Project" Mode="In" Type="String" />
+            <Parameter Name="VatPrcnt" Mode="In" Type="Decimal" />
+            <Parameter Name="VatGroup" Mode="In" Type="String" />
+            <Parameter Name="PriceAfVAT" Mode="In" Type="Decimal" />
+            <Parameter Name="VatSum" Mode="In" Type="Decimal" />
+            <Parameter Name="TaxCode" Mode="In" Type="String" />
+            <Parameter Name="TaxType" Mode="In" Type="String" />
+            <Parameter Name="FreeTxt" Mode="In" Type="String" />
+            <Parameter Name="unitMsr" Mode="In" Type="String" />
+            <Parameter Name="UomCode" Mode="In" Type="String" />
+            <Parameter Name="FromWhsCod" Mode="In" Type="String" />
+            <Parameter Name="Doc_LineDesc" Mode="In" Type="String" />
+            <Parameter Name="Doc_SizeColor" Mode="In" Type="String" />
+            <Parameter Name="Doc_Status" Mode="In" Type="String" />
+            <Parameter Name="Doc_Remark" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POST_RDR2">
+            <Parameter Name="DocNum" Mode="In" Type="Int32" />
+            <Parameter Name="LineNum" Mode="In" Type="Int32" />
+            <Parameter Name="Doc_Size" Mode="In" Type="String" />
+            <Parameter Name="Doc_Color" Mode="In" Type="String" />
+            <Parameter Name="Quantity" Mode="In" Type="Decimal" />
+            <Parameter Name="Doc_Label" Mode="In" Type="String" />
+            <Parameter Name="Doc_Remark1" Mode="In" Type="String" />
+            <Parameter Name="Doc_Remark2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PUT_OQUT">
+            <Parameter Name="U_EarlyFromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="U_EarlyToDate" Mode="In" Type="DateTime" />
+            <Parameter Name="U_StandardFromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="U_StandardToDate" Mode="In" Type="DateTime" />
+            <Parameter Name="U_OnSiteFromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="U_OnSiteToDate" Mode="In" Type="DateTime" />
+            <Parameter Name="U_EarlyDisc" Mode="In" Type="Decimal" />
+            <Parameter Name="U_StandardDisc" Mode="In" Type="Decimal" />
+            <Parameter Name="U_OnSiteDisc" Mode="In" Type="Decimal" />
+            <Parameter Name="DocEntry" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PUT_PAYMENT">
+            <Parameter Name="LineNum" Mode="In" Type="Int32" />
+            <Parameter Name="DocStatus" Mode="In" Type="String" />
+            <Parameter Name="DocDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CardCode" Mode="In" Type="String" />
+            <Parameter Name="CardName" Mode="In" Type="String" />
+            <Parameter Name="TypePay" Mode="In" Type="String" />
+            <Parameter Name="Bank" Mode="In" Type="String" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="Project" Mode="In" Type="String" />
+            <Parameter Name="U_MainProject" Mode="In" Type="String" />
+            <Parameter Name="AttachFile" Mode="In" Type="String" />
+            <Parameter Name="DocNum" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PUT_QUT1">
+            <Parameter Name="U_EarlyPrice" Mode="In" Type="Decimal" />
+            <Parameter Name="U_StandardPrice" Mode="In" Type="Decimal" />
+            <Parameter Name="U_OnSitePrice" Mode="In" Type="Decimal" />
+            <Parameter Name="U_Size" Mode="In" Type="String" />
+            <Parameter Name="U_Color" Mode="In" Type="String" />
+            <Parameter Name="DocEntry" Mode="In" Type="Int32" />
+            <Parameter Name="LineNum" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UPSERT_OCRD" ReturnType="Collection(XCON_GCModel.UPSERT_OCRD_Result)">
+            <Parameter Name="CodeFrom" Mode="In" Type="String" />
+            <Parameter Name="CodeTo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UPSERT_OQUT" ReturnType="Collection(XCON_GCModel.UPSERT_OQUT_Result)">
+            <Parameter Name="DueDateFrom" Mode="In" Type="DateTime" />
+            <Parameter Name="DueDateTo" Mode="In" Type="DateTime" />
+            <Parameter Name="DocnumFrom" Mode="In" Type="Int32" />
+            <Parameter Name="DocnumTo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UPSERT_QUT1" ReturnType="Collection(XCON_GCModel.UPSERT_QUT1_Result)">
+            <Parameter Name="DueDateFrom" Mode="In" Type="DateTime" />
+            <Parameter Name="DueDateTo" Mode="In" Type="DateTime" />
+            <Parameter Name="DocnumFrom" Mode="In" Type="Int32" />
+            <Parameter Name="DocnumTo" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Get_XCONQuotation_Result">
+          <Property Type="Int16" Name="Series" Nullable="true" />
+          <Property Type="Int32" Name="DocEntry" Nullable="false" />
+          <Property Type="Int32" Name="DocNum" Nullable="false" />
+          <Property Type="String" Name="DocStatus" Nullable="true" MaxLength="1" />
+          <Property Type="DateTime" Name="DocDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="DocDueDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CardCode" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="CardName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="254" />
+          <Property Type="String" Name="NumAtCard" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Comments" Nullable="true" MaxLength="254" />
+          <Property Type="DateTime" Name="TaxDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Address2" Nullable="true" MaxLength="254" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="UPSERT_OCRD_Result">
+          <Property Type="String" Name="CardCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="CardName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ZipCode" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Phone1" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Phone2" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Currency" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="CardFName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Building" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="UPSERT_OQUT_Result">
+          <Property Type="Int16" Name="Series" Nullable="true" />
+          <Property Type="Int32" Name="DocEntry" Nullable="false" />
+          <Property Type="Int32" Name="DocNum" Nullable="false" />
+          <Property Type="String" Name="DocStatus" Nullable="true" MaxLength="1" />
+          <Property Type="DateTime" Name="DocDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="DocDueDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CardCode" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="CardName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="254" />
+          <Property Type="String" Name="NumAtCard" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Comments" Nullable="true" MaxLength="254" />
+          <Property Type="DateTime" Name="TaxDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Address2" Nullable="true" MaxLength="254" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Mainproject" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="DocCur" Nullable="true" MaxLength="3" />
+          <Property Type="Decimal" Name="DocRate" Nullable="true" Precision="19" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="UPSERT_QUT1_Result">
+          <Property Type="Int32" Name="DocEntry" Nullable="false" />
+          <Property Type="Int32" Name="LineNum" Nullable="false" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Dscription" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Quantity" Nullable="true" Precision="19" Scale="6" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" Scale="6" />
+          <Property Type="String" Name="Currency" Nullable="true" MaxLength="3" />
+          <Property Type="Decimal" Name="Rate" Nullable="true" Precision="19" Scale="6" />
+          <Property Type="String" Name="WhsCode" Nullable="true" MaxLength="8" />
+          <Property Type="Decimal" Name="PriceBefDi" Nullable="true" Precision="19" Scale="6" />
+          <Property Type="DateTime" Name="DocDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="OcrCode" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="VatPrcnt" Nullable="true" Precision="19" Scale="6" />
+          <Property Type="String" Name="VatGroup" Nullable="true" MaxLength="8" />
+          <Property Type="Decimal" Name="PriceAfVAT" Nullable="true" Precision="19" Scale="6" />
+          <Property Type="Decimal" Name="VatSum" Nullable="true" Precision="19" Scale="6" />
+          <Property Type="String" Name="TaxCode" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="TaxType" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="FreeTxt" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="unitMsr" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="UomCode" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="FromWhsCod" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="Column1" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="Column2" Nullable="false" MaxLength="13" />
+          <Property Type="String" Name="Column3" Nullable="false" MaxLength="16" />
+          <Property Type="String" Name="Column4" Nullable="false" MaxLength="14" />
+          <Property Type="String" Name="Column5" Nullable="false" MaxLength="9" />
+          <Property Type="String" Name="Column6" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="U_GC_GroupType" Nullable="true" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="XCON_GCModelStoreContainer" CdmEntityContainer="XCON_GCEntities">
+          <EntitySetMapping Name="GC_ORDR">
+            <EntityTypeMapping TypeName="XCON_GCModel.GC_ORDR">
+              <MappingFragment StoreEntitySet="GC_ORDR">
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="DocDueDate" ColumnName="DocDueDate" />
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="NumAtCard" ColumnName="NumAtCard" />
+                <ScalarProperty Name="VatSum" ColumnName="VatSum" />
+                <ScalarProperty Name="DocTotal" ColumnName="DocTotal" />
+                <ScalarProperty Name="Doc_Approve" ColumnName="Doc_Approve" />
+                <ScalarProperty Name="Doc_Date" ColumnName="Doc_Date" />
+                <ScalarProperty Name="Doc_BaseRef" ColumnName="Doc_BaseRef" />
+                <ScalarProperty Name="Doc_Status" ColumnName="Doc_Status" />
+                <ScalarProperty Name="Doc_Remark" ColumnName="Doc_Remark" />
+                <ScalarProperty Name="Doc_AppUser" ColumnName="Doc_AppUser" />
+                <ScalarProperty Name="Doc_AppDate" ColumnName="Doc_AppDate" />
+                <ScalarProperty Name="DocCur" ColumnName="DocCur" />
+                <ScalarProperty Name="DocRate" ColumnName="DocRate" />
+                <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="BoothNo" ColumnName="BoothNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GC_OREC">
+            <EntityTypeMapping TypeName="XCON_GCModel.GC_OREC">
+              <MappingFragment StoreEntitySet="GC_OREC">
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="LineNum" ColumnName="LineNum" />
+                <ScalarProperty Name="DocStatus" ColumnName="DocStatus" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="TypePay" ColumnName="TypePay" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="U_MainProject" ColumnName="U_MainProject" />
+                <ScalarProperty Name="AttachFile" ColumnName="AttachFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GC_USER">
+            <EntityTypeMapping TypeName="XCON_GCModel.GC_USER">
+              <MappingFragment StoreEntitySet="GC_USER">
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+                <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GC_OCRD">
+            <EntityTypeMapping TypeName="XCON_GCModel.GC_OCRD">
+              <MappingFragment StoreEntitySet="GC_OCRD">
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="CardFName" ColumnName="CardFName" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GC_OQUT">
+            <EntityTypeMapping TypeName="XCON_GCModel.GC_OQUT">
+              <MappingFragment StoreEntitySet="GC_OQUT">
+                <ScalarProperty Name="DocEntry" ColumnName="DocEntry" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="DocStatus" ColumnName="DocStatus" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="DocDueDate" ColumnName="DocDueDate" />
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="NumAtCard" ColumnName="NumAtCard" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="DocCur" ColumnName="DocCur" />
+                <ScalarProperty Name="DocRate" ColumnName="DocRate" />
+                <ScalarProperty Name="U_MainProject" ColumnName="U_MainProject" />
+                <ScalarProperty Name="U_ExpireDay" ColumnName="U_ExpireDay" />
+                <ScalarProperty Name="U_EarlyFromDate" ColumnName="U_EarlyFromDate" />
+                <ScalarProperty Name="U_EarlyToDate" ColumnName="U_EarlyToDate" />
+                <ScalarProperty Name="U_StandardFromDate" ColumnName="U_StandardFromDate" />
+                <ScalarProperty Name="U_StandardToDate" ColumnName="U_StandardToDate" />
+                <ScalarProperty Name="U_OnSiteFromDate" ColumnName="U_OnSiteFromDate" />
+                <ScalarProperty Name="U_OnSiteToDate" ColumnName="U_OnSiteToDate" />
+                <ScalarProperty Name="U_EarlyDisc" ColumnName="U_EarlyDisc" />
+                <ScalarProperty Name="U_StandardDisc" ColumnName="U_StandardDisc" />
+                <ScalarProperty Name="U_OnSiteDisc" ColumnName="U_OnSiteDisc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GC_QUT1">
+            <EntityTypeMapping TypeName="XCON_GCModel.GC_QUT1">
+              <MappingFragment StoreEntitySet="GC_QUT1">
+                <ScalarProperty Name="DocEntry" ColumnName="DocEntry" />
+                <ScalarProperty Name="LineNum" ColumnName="LineNum" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Dscription" ColumnName="Dscription" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="WhsCode" ColumnName="WhsCode" />
+                <ScalarProperty Name="PriceBefDi" ColumnName="PriceBefDi" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="OcrCode" ColumnName="OcrCode" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="VatPrcnt" ColumnName="VatPrcnt" />
+                <ScalarProperty Name="VatGroup" ColumnName="VatGroup" />
+                <ScalarProperty Name="PriceAfVAT" ColumnName="PriceAfVAT" />
+                <ScalarProperty Name="VatSum" ColumnName="VatSum" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="TaxType" ColumnName="TaxType" />
+                <ScalarProperty Name="FreeTxt" ColumnName="FreeTxt" />
+                <ScalarProperty Name="unitMsr" ColumnName="unitMsr" />
+                <ScalarProperty Name="UomCode" ColumnName="UomCode" />
+                <ScalarProperty Name="FromWhsCod" ColumnName="FromWhsCod" />
+                <ScalarProperty Name="U_LineDesc" ColumnName="U_LineDesc" />
+                <ScalarProperty Name="U_EarlyPrice" ColumnName="U_EarlyPrice" />
+                <ScalarProperty Name="U_StandardPrice" ColumnName="U_StandardPrice" />
+                <ScalarProperty Name="U_OnSitePrice" ColumnName="U_OnSitePrice" />
+                <ScalarProperty Name="U_Size" ColumnName="U_Size" />
+                <ScalarProperty Name="U_Color" ColumnName="U_Color" />
+                <ScalarProperty Name="U_GC_GroupType" ColumnName="U_GC_GroupType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GC_RDR1">
+            <EntityTypeMapping TypeName="XCON_GCModel.GC_RDR1">
+              <MappingFragment StoreEntitySet="GC_RDR1">
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="LineNum" ColumnName="LineNum" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Dscription" ColumnName="Dscription" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="WhsCode" ColumnName="WhsCode" />
+                <ScalarProperty Name="PriceBefDi" ColumnName="PriceBefDi" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="OcrCode" ColumnName="OcrCode" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="VatPrcnt" ColumnName="VatPrcnt" />
+                <ScalarProperty Name="VatGroup" ColumnName="VatGroup" />
+                <ScalarProperty Name="PriceAfVAT" ColumnName="PriceAfVAT" />
+                <ScalarProperty Name="VatSum" ColumnName="VatSum" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="TaxType" ColumnName="TaxType" />
+                <ScalarProperty Name="FreeTxt" ColumnName="FreeTxt" />
+                <ScalarProperty Name="unitMsr" ColumnName="unitMsr" />
+                <ScalarProperty Name="UomCode" ColumnName="UomCode" />
+                <ScalarProperty Name="FromWhsCod" ColumnName="FromWhsCod" />
+                <ScalarProperty Name="Doc_LineDesc" ColumnName="Doc_LineDesc" />
+                <ScalarProperty Name="Doc_SizeColor" ColumnName="Doc_SizeColor" />
+                <ScalarProperty Name="Doc_Status" ColumnName="Doc_Status" />
+                <ScalarProperty Name="Doc_Remark" ColumnName="Doc_Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GC_RDR2">
+            <EntityTypeMapping TypeName="XCON_GCModel.GC_RDR2">
+              <MappingFragment StoreEntitySet="GC_RDR2">
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="LineNum" ColumnName="LineNum" />
+                <ScalarProperty Name="SubLine" ColumnName="SubLine" />
+                <ScalarProperty Name="Doc_Size" ColumnName="Doc_Size" />
+                <ScalarProperty Name="Doc_Color" ColumnName="Doc_Color" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Doc_Label" ColumnName="Doc_Label" />
+                <ScalarProperty Name="Doc_Remark1" ColumnName="Doc_Remark1" />
+                <ScalarProperty Name="Doc_Remark2" ColumnName="Doc_Remark2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Get_XCONQuotation" FunctionName="XCON_GCModel.Store.Get_XCONQuotation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="XCON_GCModel.Get_XCONQuotation_Result">
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="DocEntry" ColumnName="DocEntry" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="DocStatus" ColumnName="DocStatus" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="DocDueDate" ColumnName="DocDueDate" />
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="NumAtCard" ColumnName="NumAtCard" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="TaxDate" ColumnName="TaxDate" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="POST_ORDR" FunctionName="XCON_GCModel.Store.POST_ORDR" />
+          <FunctionImportMapping FunctionImportName="POST_PAYMENT" FunctionName="XCON_GCModel.Store.POST_PAYMENT" />
+          <FunctionImportMapping FunctionImportName="POST_RDR1" FunctionName="XCON_GCModel.Store.POST_RDR1" />
+          <FunctionImportMapping FunctionImportName="POST_RDR2" FunctionName="XCON_GCModel.Store.POST_RDR2" />
+          <FunctionImportMapping FunctionImportName="PUT_OQUT" FunctionName="XCON_GCModel.Store.PUT_OQUT" />
+          <FunctionImportMapping FunctionImportName="PUT_PAYMENT" FunctionName="XCON_GCModel.Store.PUT_PAYMENT" />
+          <FunctionImportMapping FunctionImportName="PUT_QUT1" FunctionName="XCON_GCModel.Store.PUT_QUT1" />
+          <FunctionImportMapping FunctionImportName="UPSERT_OCRD" FunctionName="XCON_GCModel.Store.UPSERT_OCRD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="XCON_GCModel.UPSERT_OCRD_Result">
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="CardFName" ColumnName="CardFName" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UPSERT_OQUT" FunctionName="XCON_GCModel.Store.UPSERT_OQUT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="XCON_GCModel.UPSERT_OQUT_Result">
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="DocEntry" ColumnName="DocEntry" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="DocStatus" ColumnName="DocStatus" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="DocDueDate" ColumnName="DocDueDate" />
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="NumAtCard" ColumnName="NumAtCard" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="TaxDate" ColumnName="TaxDate" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Mainproject" ColumnName="Mainproject" />
+                <ScalarProperty Name="DocCur" ColumnName="DocCur" />
+                <ScalarProperty Name="DocRate" ColumnName="DocRate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UPSERT_QUT1" FunctionName="XCON_GCModel.Store.UPSERT_QUT1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="XCON_GCModel.UPSERT_QUT1_Result">
+                <ScalarProperty Name="DocEntry" ColumnName="DocEntry" />
+                <ScalarProperty Name="LineNum" ColumnName="LineNum" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Dscription" ColumnName="Dscription" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="WhsCode" ColumnName="WhsCode" />
+                <ScalarProperty Name="PriceBefDi" ColumnName="PriceBefDi" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="OcrCode" ColumnName="OcrCode" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="VatPrcnt" ColumnName="VatPrcnt" />
+                <ScalarProperty Name="VatGroup" ColumnName="VatGroup" />
+                <ScalarProperty Name="PriceAfVAT" ColumnName="PriceAfVAT" />
+                <ScalarProperty Name="VatSum" ColumnName="VatSum" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="TaxType" ColumnName="TaxType" />
+                <ScalarProperty Name="FreeTxt" ColumnName="FreeTxt" />
+                <ScalarProperty Name="unitMsr" ColumnName="unitMsr" />
+                <ScalarProperty Name="UomCode" ColumnName="UomCode" />
+                <ScalarProperty Name="FromWhsCod" ColumnName="FromWhsCod" />
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="Column2" ColumnName="Column2" />
+                <ScalarProperty Name="Column3" ColumnName="Column3" />
+                <ScalarProperty Name="Column4" ColumnName="Column4" />
+                <ScalarProperty Name="Column5" ColumnName="Column5" />
+                <ScalarProperty Name="Column6" ColumnName="Column6" />
+                <ScalarProperty Name="U_GC_GroupType" ColumnName="U_GC_GroupType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
